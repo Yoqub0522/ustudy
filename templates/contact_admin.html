@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Admin bilan aloqa{% endblock %}
+{% block content %}
+<div class="container my-5">
+    <h2>✉️ Admin bilan aloqa</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Yuborish</button>
+    </form>
+</div>
+{% endblock %}
