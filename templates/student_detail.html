@@ -25,6 +25,7 @@
                                 <th>Tanlagan kursi</th>
                                 <th>Email</th>
                                 <th>Rasm</th>
+                                <th>Video</th>
                                 <th>CV</th>
                                 {% if user.is_authenticated and user.role != 'reader' %}
                                     <th>Amallar</th>
@@ -44,6 +45,14 @@
                                     {% else %}
                                         Rasm yo‘q
                                     {% endif %}
+                                </td>
+                                 <td>
+                                    {% if student.video %}
+                                    <video width="320" height="240" controls>
+                                     <source src="{{ student.video.url }}" type="video/mp4">Brauzeringiz bu formatni qo‘llab-quvvatlamaydi.</video>
+                                    {% else %}
+                                    <p>🎥 Video mavjud emas</p>
+                                        {% endif %}
                                 </td>
                                 <td>
                                     {% if student.file %}

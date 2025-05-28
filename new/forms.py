@@ -11,4 +11,4 @@ class CourseForm(forms.ModelForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields=['full_name','age','course_name','email','image','file']
+        fields=['full_name','age','course_name','email','image','video','file']

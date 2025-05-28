@@ -40,6 +40,7 @@ class Student(BaseModel):
     course_name = models.ForeignKey(Course, models.PROTECT)
     email = models.EmailField(unique=True)
     image = CloudinaryField('image', blank=True, null=True)
+    video = CloudinaryField('video', blank=True, null=True)
     file = CloudinaryField('file', blank=True, null=True)
     registration_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
