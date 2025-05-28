@@ -1,3 +1,4 @@
+from cloudinary.utils import cloudinary_url
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
@@ -67,12 +68,36 @@ def create_student(request):
         form = StudentForm()
     return render(request, 'create_student.html', {'form': form})
 
+
+
+
+# def get_student_detail(request, pk):
+#     student = Student.objects.get(pk=pk)
+#
+#     context={
+#         'student':student
+#     }
+#     return render(request, 'student_detail.html', {'student':student})
+
 def get_student_detail(request, pk):
     student = Student.objects.get(pk=pk)
-    context={
-        'student':student
-    }
-    return render(request, 'student_detail.html', {'student':student})
+    video_public_id = None
+    if student.video:
+        video_public_id = student.video.public_id  # yoki student.video.path
+
+    video_url = None
+    if video_public_id:
+        from cloudinary.utils import cloudinary_url
+        video_url, options = cloudinary_url(
+            video_public_id,
+            resource_type='video',
+            format='mp4',
+            width=320,
+            height=240,
+            crop='scale'
+        )
+    return render(request, 'student_detail.html', {'student': student, 'video_url': video_url})
+
 
 def student_update(request, pk):
     student=Student.objects.get(pk=pk)
