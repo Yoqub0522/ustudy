@@ -32,16 +32,15 @@ class Course(BaseModel):
         return self.name
 
 
+from cloudinary.models import CloudinaryField
+
 class Student(BaseModel):
     full_name = models.CharField(max_length=100)
     age = models.IntegerField()
     course_name = models.ForeignKey(Course, models.PROTECT)
     email = models.EmailField(unique=True)
-    image = models.ImageField(blank=True,null=True, upload_to='images/')
-    file = models.FileField(blank=True,null=True, upload_to='images/')
+    image = CloudinaryField('image', blank=True, null=True)
+    file = CloudinaryField('file', blank=True, null=True)
     registration_date = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.full_name
 
