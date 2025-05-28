@@ -59,7 +59,7 @@ def student_list(request):
 
 def create_student(request):
     if request.method == 'POST':
-        form = StudentForm(request.POST ,request.FILES)
+        form = StudentForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect('student-list')

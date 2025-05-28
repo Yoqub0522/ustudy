@@ -25,3 +25,4 @@ ua-parser-builtins==0.18.0.post1
 python-dotenv>=0.20.0
 urllib3==2.4.0
 user-agents==2.2.0
+django-cloudinary-storage==0.3.0
