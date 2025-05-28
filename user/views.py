@@ -1,3 +1,4 @@
+import requests
 from django.contrib.auth import logout,login
 
 
@@ -45,7 +46,7 @@ def logout_view(request):
 from django.contrib.auth import get_user_model
 from django.db.models import Count
 from django.utils.timezone import now, timedelta
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views import View
 
 User = get_user_model()
@@ -207,26 +208,17 @@ def reset_password_view(request, token):
 
     return render(request, 'password_reset/new_password.html', {'token': token})
 
+
 def google_login(request):
     auth_url = (
-
         f"{settings.GOOGLE_AUTH_URL}"
-
         f"?client_id={settings.GOOGLE_CLIENT_ID}"
-
         f"&redirect_uri={settings.GOOGLE_REDIRECT_URI}"
-
         f"&response_type=code"
-
-        f"&scope=openid email profile"
-
+        f"&scope=openid%20email%20profile"
     )
-
     return redirect(auth_url)
 
-import requests
-from django.http import HttpResponse
-from django.conf import settings
 
 def google_callback(request):
     code = request.GET.get('code')
@@ -241,28 +233,34 @@ def google_callback(request):
         "grant_type": "authorization_code",
     }
 
-    # Access token olish
     token_response = requests.post(settings.GOOGLE_TOKEN_URL, data=token_data)
+
+    if token_response.status_code != 200:
+        return HttpResponse(f"Access token olinmadi: {token_response.text}", status=400)
+
     token_json = token_response.json()
     access_token = token_json.get("access_token")
 
     if not access_token:
         return HttpResponse("Access token olinmadi", status=400)
 
-    # User ma’lumotlarini olish
     user_info_response = requests.get(
         settings.GOOGLE_USER_INFO_URL,
         headers={"Authorization": f"Bearer {access_token}"}
     )
 
-    user_info = user_info_response.json()
-    # print(user_info)  # <-- bu yerda foydalanuvchi haqida ma’lumot chiqadi (email, name va hokazo)
-    user,_=CustomUser.objects.get_or_create(
-        username=user_info.get("given_name"),
-        email=user_info.get("email"),
-    )
-    if user:
-        login(request, user)
-        return redirect('course-list')
+    if user_info_response.status_code != 200:
+        return HttpResponse("Foydalanuvchi ma'lumotlari olinmadi", status=400)
 
-    return redirect('login')
+    user_info = user_info_response.json()
+    email = user_info.get("email")
+    if not email:
+        return HttpResponse("Email olinmadi", status=400)
+
+    user, created = CustomUser.objects.get_or_create(email=email)
+    if created:
+        user.username = user_info.get("given_name") or email.split("@")[0]
+        user.save()
+
+    login(request, user)
+    return redirect('course-list')
