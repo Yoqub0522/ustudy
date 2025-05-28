@@ -115,7 +115,7 @@ def log_course_created(sender, instance, created, **kwargs):
 def log_course_delete(sender, instance, **kwargs):
     user = get_current_user()
     creator = user.username if user and user.is_authenticated else 'Noma\'lum foydalanuvchi'
-    logger.info(f"Course o'chirildi: {instance.name}, o'chirgan: {creator}")
+    logger.info(f"Course o'chirildi: {instance.full_name}, o'chirgan: {creator}")
 
 @receiver(post_save, sender=Student)
 def log_student_created(sender, instance, created, **kwargs):
@@ -127,11 +127,11 @@ def log_student_created(sender, instance, created, **kwargs):
     else:
         user = get_current_user()
         creator = user.username if user and user.is_authenticated else 'Noma\'lum foydalanuvchi'
-        logger.info(f"Talaba yangilandi: {instance.name}, Editor: {creator}")
+        logger.info(f"Talaba yangilandi: {instance.full_name}, Editor: {creator}")
 
 
 @receiver(post_delete, sender=Student)
 def log_course_delete(sender, instance, **kwargs):
     user = get_current_user()
     creator = user.username if user and user.is_authenticated else 'Noma\'lum foydalanuvchi'
-    logger.warning(f"Student yangilandi: {instance.name}, o'chirgan: {creator}")
+    logger.warning(f"Student yangilandi: {instance.full_name}, o'chirgan: {creator}")
