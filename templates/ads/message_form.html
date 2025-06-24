@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>📩 Xabar yuborish</h2>
+  <p><strong>Qabul qiluvchi:</strong> {{ receiver.username }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Yuborish</button>
+    <a href="{% url 'ad_detail' ad.pk %}" class="btn btn-secondary">Bekor qilish</a>
+  </form>
+{% endblock %}

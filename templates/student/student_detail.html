@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
-{% block title %}Talabalar ro'yxati{% endblock %}
+{% block title %}{% trans "Talaba tafsilotlari" %}{% endblock %}
 
 {% block content %}
 <div class="container py-5">
-    <h2 class="text-center mb-4">📘 Talabalar ro'yxati</h2>
+    <h2 class="text-center mb-4">📘 {% trans "Talaba tafsilotlari" %}</h2>
 
     {% if user.is_authenticated and user.role != 'reader' %}
         <div class="mb-4 text-end">
-            <a href="{% url 'student-create' %}" class="btn btn-primary">➕ Yangi talaba</a>
+            <a href="{% url 'student-create' %}" class="btn btn-primary">➕ {% trans "Yangi talaba" %}</a>
         </div>
     {% endif %}
 
@@ -19,16 +20,16 @@
                     <table class="table table-striped table-hover align-middle">
                         <thead class="table-dark">
                             <tr>
-                                <th>Tr</th>
-                                <th>Nomi</th>
-                                <th>Yoshi</th>
-                                <th>Tanlagan kursi</th>
-                                <th>Email</th>
-                                <th>Rasm</th>
-                                <th>Video</th>
-                                <th>CV</th>
+                                <th>{% trans "Tr" %}</th>
+                                <th>{% trans "Ismi" %}</th>
+                                <th>{% trans "Yoshi" %}</th>
+                                <th>{% trans "Tanlagan kursi" %}</th>
+                                <th>{% trans "Email" %}</th>
+                                <th>{% trans "Rasm" %}</th>
+                                <th>{% trans "Video" %}</th>
+                                <th>{% trans "CV" %}</th>
                                 {% if user.is_authenticated and user.role != 'reader' %}
-                                    <th>Amallar</th>
+                                    <th>{% trans "Amallar" %}</th>
                                 {% endif %}
                             </tr>
                         </thead>
@@ -41,12 +42,12 @@
                                 <td>{{ student.email }}</td>
                                 <td>
                                     {% if student.image %}
-                                        <img src="{{ student.image.url }}" alt="Talaba rasmi" width="120" class="img-thumbnail">
+                                        <img src="{{ student.image.url }}" alt="{% trans "Talaba rasmi" %}" width="120" class="img-thumbnail">
                                     {% else %}
-                                        Rasm yo‘q
+                                        {% trans "Rasm yo‘q" %}
                                     {% endif %}
                                 </td>
-                                 <td>
+                               <td>
                                     {% if student.video %}
                                    <video width="320" height="240" controls>
                                             <source src="{{ video_url }}" type="video/mp4">
@@ -58,9 +59,9 @@
                                 </td>
                                 <td>
                                     {% if student.file %}
-                                        <a href="{{ student.file.url }}" class="btn btn-outline-primary btn-sm">Yuklash</a>
+                                        <a href="{{ student.file.url }}" class="btn btn-outline-primary btn-sm">{% trans "Yuklash" %}</a>
                                     {% else %}
-                                        Fayl yo‘q
+                                        {% trans "Fayl yo‘q" %}
                                     {% endif %}
                                 </td>
                                 {% if user.is_authenticated and user.role != 'reader' %}
@@ -76,13 +77,13 @@
                     </table>
                 </div>
             {% else %}
-                <p class="text-center text-muted">📭 Hozircha hech qanday talaba mavjud emas.</p>
+                <p class="text-center text-muted">📭 {% trans "Hozircha hech qanday talaba mavjud emas." %}</p>
             {% endif %}
         </div>
     </div>
 
     <div class="mt-4 text-end">
-        <a href="{% url 'student-list' %}" class="btn btn-secondary">← Orqaga</a>
+        <a href="{% url 'student-list' %}" class="btn btn-secondary">← {% trans "Orqaga" %}</a>
     </div>
 </div>
 {% endblock %}

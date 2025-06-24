@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-body">
+      <h2>⚠️ Rostdan ham ushbu e’loni o‘chirmoqchimisiz?</h2>
+      <p><strong>{{ ad.title }}</strong></p>
+
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">🗑️ Ha, o‘chir</button>
+        <a href="{% url 'ad_detail' ad.pk %}" class="btn btn-secondary">Bekor qilish</a>
+      </form>
+    </div>
+  </div>
+{% endblock %}

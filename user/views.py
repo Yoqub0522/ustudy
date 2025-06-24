@@ -264,3 +264,28 @@ def google_callback(request):
 
     login(request, user)
     return redirect('course-list')
+
+#profile
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Profile
+from .forms import ProfileForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def profile_detail(request, username):
+    profile = get_object_or_404(Profile, user__username=username)
+    return render(request, 'profile/profile_detail.html', {'profile': profile})
+
+@login_required
+def profile_edit(request):
+    profile = request.user.profile
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_detail', username=request.user.username)
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'profile/profile_edit.html', {'form': form})
+
+

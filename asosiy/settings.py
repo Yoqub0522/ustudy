@@ -15,14 +15,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lz0sexi(viu(@gj4hpefb3$^i^h+(hg-ct@c0z^klu+%99lxlg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 import os
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['.onrender.com']
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# # ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['.onrender.com']
+# INSTALLED_APPS = [
+#     'django.contrib.auth',
+# ]
+# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+# if RENDER_EXTERNAL_HOSTNAME:
+#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -35,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'new',
     'user',
+    'elon',
     'widget_tweaks',
     'captcha',
     'cloudinary',
     'cloudinary_storage',
+    'rosetta',
 
 
 ]
@@ -56,13 +61,14 @@ CLOUDINARY_STORAGE = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',#til
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'user.middleware.LoginMiddleware',
-    'user.middleware.RateLimitMiddleware',
+    # 'user.middleware.RateLimitMiddleware',
     'crum.CurrentRequestUserMiddleware',
 
 ]
@@ -119,7 +125,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.parse(
-        'postgresql://neondb_owner:npg_mKqIx7wAuVZ4@ep-calm-snow-a491d1ql-pooler.us-east-1.aws.neon.tech/baza',
+        'postgresql://neondb_owner:npg_mKqIx7wAuVZ4@ep-calm-snow-a491d1ql-pooler.us-east-1.aws.neon.tech/yangi_baza',
         conn_max_age=600,
         ssl_require=True
     )
@@ -159,7 +165,14 @@ TIME_ZONE = 'Asia/Tashkent'
 USE_I18N = True
 
 USE_TZ = True
-
+LANGUAGES = [
+    ('en', 'English'),
+    ('uz', 'Uzbek'),
+    ('ru', 'Russian'),
+]
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -257,3 +270,5 @@ GOOGLE_AUTH_URL = os.getenv('GOOGLE_AUTH_URL')
 GOOGLE_USER_INFO_URL =os.getenv('GOOGLE_USER_INFO_URL')
 
 GOOGLE_TOKEN_URL =os.getenv('GOOGLE_TOKEN_URL')
+
+

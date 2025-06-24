@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow-lg" style="max-width: 600px; margin: auto;">
+        <div class="card-header text-center bg-primary text-white">
+            <h3>📋 Profilni tahrirlash</h3>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="{{ form.nickname.id_for_label }}" class="form-label">🧑 Nickname</label>
+                    {{ form.nickname }}
+                    {% if form.nickname.errors %}
+                        <div class="text-danger small">{{ form.nickname.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.bio.id_for_label }}" class="form-label">📝 Bio</label>
+                    {{ form.bio }}
+                    {% if form.bio.errors %}
+                        <div class="text-danger small">{{ form.bio.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    <label for="{{ form.image.id_for_label }}" class="form-label">📷 Profil rasmi</label>
+                    {{ form.image }}
+                    {% if form.image.errors %}
+                        <div class="text-danger small">{{ form.image.errors }}</div>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">💾 Saqlash</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

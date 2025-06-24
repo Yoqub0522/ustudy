@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class DeleteModel(models.Manager):
 
@@ -24,9 +25,9 @@ class BaseModel(models.Model):
         self.save(*args, **kwargs)
 
 class Course(BaseModel):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    start_date = models.DateField()
+    name = models.CharField(_('name'),max_length=100)
+    description = models.TextField(_('description'),)
+    start_date = models.DateField(_('start_date'),)
 
     def __str__(self):
         return self.name
@@ -35,13 +36,13 @@ class Course(BaseModel):
 from cloudinary.models import CloudinaryField
 
 class Student(BaseModel):
-    full_name = models.CharField(max_length=100)
-    age = models.IntegerField()
+    full_name = models.CharField(_('full_name'),max_length=100)
+    age = models.IntegerField(_('age'),)
     course_name = models.ForeignKey(Course, models.PROTECT)
-    email = models.EmailField(unique=True)
-    image = CloudinaryField('image', blank=True, null=True)
-    video = CloudinaryField('video', blank=True, null=True)
-    file = CloudinaryField('file', blank=True, null=True)
-    registration_date = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=True)
+    email = models.EmailField(_('email'),unique=True)
+    image = CloudinaryField(_('image'),'image', blank=True, null=True)
+    video = CloudinaryField(_('video'),'video', blank=True, null=True)
+    file = CloudinaryField(_('file'),'file', blank=True, null=True)
+    registration_date = models.DateTimeField(_('registration_date'),auto_now_add=True)
+    is_active = models.BooleanField(_('is_active'),default=True)
 

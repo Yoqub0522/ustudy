@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .profile-card {
+        max-width: 500px;
+        margin: 50px auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        padding: 20px;
+        background-color: #fff;
+    }
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        border: 3px solid #0d6efd;
+    }
+    .edit-button {
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container bg-light">
+    <div class="profile-card text-center">
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}" alt="Profile image" class="profile-image">
+        {% else %}
+            <img src="{% static 'profile/person.png' %}" alt="Default image" class="profile-image">
+        {% endif %}
+
+        <p class="mt-3"><strong>Nickname:</strong>:{{ profile.user.username }}</p>
+        <p class="mt-3"><strong>Gmail:</strong>: {{ profile.user.email}}</p>
+        <p><strong>Nickname:</strong> {{ profile.nickname|default:"Yo‘q" }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio|default:"Bio kiritilmagan" }}</p>
+        <p><strong>Role:</strong> {{ profile.user.role }}</p>
+        <p><strong>Oxirgi faollik:</strong> {{ profile.user.last_login }}</p>
+
+        <div class="edit-button">
+            <a href="{% url 'profile_edit' %}" class="btn btn-primary">✏️ Tahrirlash</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

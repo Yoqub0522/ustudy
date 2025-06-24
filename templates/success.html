@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}Xabar yuborildi{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans "Xabar yuborildi" %}{% endblock %}
 
 {% block content %}
 <div class="container my-5">
     <div class="alert alert-success shadow-sm" role="alert">
-        <h4 class="alert-heading">✅ Xabaringiz yuborildi!</h4>
-        <p>Hurmatli foydalanuvchi, sizning xabaringiz muvaffaqiyatli yuborildi.</p>
+        <h4 class="alert-heading">✅ {% trans "Xabaringiz yuborildi!" %}</h4>
+        <p>{% trans "Hurmatli foydalanuvchi, sizning xabaringiz muvaffaqiyatli yuborildi." %}</p>
         <hr>
-        <p class="mb-0">Sizning email manzilingiz: <strong>{{ email }}</strong></p>
+        <p class="mb-0">{% blocktrans %}Sizning email manzilingiz: <strong>{{ email }}</strong>{% endblocktrans %}</p>
     </div>
     <a href="{% url 'course-list' %}" class="btn btn-primary mt-3">
-        <i class="bi bi-arrow-left"></i> Bosh sahifaga qaytish
+        <i class="bi bi-arrow-left"></i> {% trans "Bosh sahifaga qaytish" %}
     </a>
 </div>
 {% endblock %}

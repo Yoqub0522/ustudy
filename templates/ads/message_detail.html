@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>📨 Xabar tafsiloti</h2>
+  <p><strong>Kimdan:</strong> {{ message.sender.username }}</p>
+  <p><strong>Kimga:</strong> {{ message.receiver.username }}</p>
+  <p><strong>Bo‘lim:</strong> <a href="{% url 'ad_detail' message.ad.pk %}">{{ message.ad.title }}</a></p>
+  <p><strong>Yuborilgan:</strong> {{ message.timestamp|date:"Y-m-d H:i" }}</p>
+  <hr>
+  <p>{{ message.content }}</p>
+  <a href="{% url 'message_list' %}" class="btn btn-secondary">⬅️ Orqaga</a>
+{% endblock %}

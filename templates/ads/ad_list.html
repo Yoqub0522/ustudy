@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Elonlar</h2>
+
+<p>
+  <a href="{% url 'ad_create' %}" class="btn btn-primary">➕ Yangi e’lon qo‘shish</a>
+</p>
+
+<ul class="list-group">
+  {% for ad in ads %}
+    <li class="list-group-item">
+      <a href="{% url 'ad_detail' ad.pk %}">
+        <strong>{{ ad.title }}</strong>
+      </a> – <span>{{ ad.price|floatformat:0 }} so‘m</span>
+    </li>
+  {% empty %}
+    <li class="list-group-item">Hozircha e’lonlar yo‘q.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

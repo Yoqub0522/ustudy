@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load widget_tweaks %}
+{% load i18n %}
 
 {% block content %}
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6 col-sm-12">
-      <h2 class="mb-4 text-center">Ro‘yxatdan o‘tish</h2>
+      <h2 class="mb-4 text-center">{% trans "Ro‘yxatdan o‘tish" %}</h2>
 
       <form method="post">
         {% csrf_token %}
@@ -24,10 +25,10 @@
         <!-- Har bir maydon uchun -->
         {% for field in form %}
           <div class="mb-3">
-            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+            <label for="{{ field.id_for_label }}" class="form-label">{% trans field.label %}</label>
             {{ field|add_class:"form-control" }}
             {% if field.help_text %}
-              <div class="form-text">{{ field.help_text }}</div>
+              <div class="form-text">{% trans field.help_text %}</div>
             {% endif %}
             {% for error in field.errors %}
               <div class="text-danger small">{{ error }}</div>
@@ -35,11 +36,11 @@
           </div>
         {% endfor %}
 
-        <button type="submit" class="btn btn-success w-100">Ro‘yxatdan o‘tish</button>
+        <button type="submit" class="btn btn-success w-100">{% trans "Ro‘yxatdan o‘tish" %}</button>
       </form>
 
       <p class="mt-4 text-center">
-        Hisobingiz bormi? <a href="{% url 'login' %}">Login sahifasiga o‘tish</a>
+        {% trans "Hisobingiz bormi?" %} <a href="{% url 'login' %}">{% trans "Login sahifasiga o‘tish" %}</a>
       </p>
     </div>
   </div>

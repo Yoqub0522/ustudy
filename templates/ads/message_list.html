@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>📬 Xabarlarim</h2>
+
+  {% if messages %}
+    <ul class="list-group">
+      {% for message in messages %}
+        <li class="list-group-item">
+          <strong>{{ message.sender.username }}</strong> →
+          <a href="{% url 'ad_detail' message.ad.pk %}">{{ message.ad.title }}</a>
+          <br>
+          {{ message.content|truncatewords:10 }}
+          <br>
+          <small class="text-muted">{{ message.timestamp|date:"Y-m-d H:i" }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Sizda hali xabarlar yo‘q.</p>
+  {% endif %}
+{% endblock %}
+

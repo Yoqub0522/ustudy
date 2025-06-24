@@ -21,7 +21,7 @@ def course_list(request):
         'user': request.user
     }
 
-    return render(request, 'course_list.html', context)
+    return render(request, 'course/course_list.html', context)
 
 def create_course(request):
     if request.method == 'POST':
@@ -31,7 +31,7 @@ def create_course(request):
             return redirect('course-list')
     else:
         form = CourseForm()
-    return render(request, 'create_course.html', {'form': form})
+    return render(request, 'course/create_course.html', {'form': form})
 
 
 from django.core.paginator import Paginator
@@ -51,7 +51,7 @@ def student_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'student_list.html', {
+    return render(request, 'student/student_list.html', {
         'page_obj': page_obj,
         'q': q,
         'is_paginated': page_obj.has_other_pages()
@@ -66,7 +66,7 @@ def create_student(request):
             return redirect('student-list')
     else:
         form = StudentForm()
-    return render(request, 'create_student.html', {'form': form})
+    return render(request, 'student/create_student.html', {'form': form})
 
 
 
@@ -96,7 +96,7 @@ def get_student_detail(request, pk):
             height=240,
             crop='scale'
         )
-    return render(request, 'student_detail.html', {'student': student, 'video_url': video_url})
+    return render(request, 'student/student_detail.html', {'student': student, 'video_url': video_url})
 
 
 def student_update(request, pk):
@@ -108,7 +108,7 @@ def student_update(request, pk):
             return redirect('student-list')
     else:
         form = StudentForm(instance=student)
-    return render(request, 'create_student.html', {'form': form})
+    return render(request, 'student/create_student.html', {'form': form})
 
 
 def delete_student(request,pk):
@@ -116,7 +116,7 @@ def delete_student(request,pk):
     if request.method=='POST':
         student.delete()
         return redirect('student-list')
-    return render(request,'delete_student.html',{'student':student})
+    return render(request,'student/delete_student.html',{'student':student})
 
 
 def get_course_detail(request, pk):
@@ -136,7 +136,7 @@ def course_update(request, pk):
             return redirect('course-list')
     else:
         form = CourseForm(instance=course)
-    return render(request, 'create_course.html', {'form': form})
+    return render(request, 'course/create_course.html', {'form': form})
 
 
 def delete_course(request,pk):
@@ -144,7 +144,7 @@ def delete_course(request,pk):
     if request.method=='POST':
         course.delete()
         return redirect('course-list')
-    return render(request,'delete_course.html',{'course':course})
+    return render(request,'course/delete_course.html',{'course':course})
 
 
 from django.shortcuts import render
@@ -165,7 +165,7 @@ def filter_by_course(request):
         'students': students,
         'selected_course': selected_course
     }
-    return render(request, 'filter_students.html', context)
+    return render(request, 'student/filter_students.html', context)
 import openpyxl
 from django.http import HttpResponse
 def export_to_xslx(request):

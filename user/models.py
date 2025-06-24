@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
@@ -29,3 +30,8 @@ class PasswordResetRequest(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.code}'
+class Profile(models.Model):
+    user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,related_name='profile')
+    nickname=models.CharField(max_length=20,blank=True,null=True)
+    bio=models.TextField(blank=True,null=True)
+    image=CloudinaryField('image', blank=True, null=True)

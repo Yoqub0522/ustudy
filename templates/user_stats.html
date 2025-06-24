@@ -1,8 +1,9 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Foydalanuvchilar Statistikasi</title>
+  <title>{% trans "Foydalanuvchilar Statistikasi" %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Bootstrap CSS -->
@@ -35,7 +36,7 @@
 
 <div class="container my-5">
 
-  <h2 class="text-center mb-4">📊 Foydalanuvchilar Statistikasi</h2>
+  <h2 class="text-center mb-4">📊 {% trans "Foydalanuvchilar Statistikasi" %}</h2>
 
   <div class="row g-4 mb-5" id="stat-cards">
     <!-- Stat kartalar shu yerga kiritiladi -->
@@ -43,7 +44,7 @@
 
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">So‘nggi 30 kunlik ro‘yxatdan o‘tishlar</h5>
+      <h5 class="card-title">{% trans "So‘nggi 30 kunlik ro‘yxatdan o‘tishlar" %}</h5>
       <canvas id="userChart" height="100"></canvas>
     </div>
   </div>
@@ -58,7 +59,7 @@ fetch('/api/user-stats/')
     statContainer.innerHTML = `
       <div class="col-md-3">
         <div class="stat-card">
-          <h5>Umumiy foydalanuvchilar</h5>
+          <h5>{% trans "Umumiy foydalanuvchilar" %}</h5>
           <h2>${data.total_users}</h2>
         </div>
 
@@ -66,9 +67,8 @@ fetch('/api/user-stats/')
       ${data.roles.map(role => `
         <div class="col-sm-3">
           <div class="stat-card">
-            <h5>${role.role.charAt(0).toUpperCase() + role.role.slice(1)} </h5>
+            <h5>${role.role.charAt(0).toUpperCase() + role.role.slice(1)}</h5>
             <h2>${role.count}</h2>
-
           </div>
         </div>
       `).join('')}
@@ -84,7 +84,7 @@ fetch('/api/user-stats/')
       data: {
         labels: labels,
         datasets: [{
-          label: 'Yangi foydalanuvchilar',
+          label: '{% trans "Yangi foydalanuvchilar" %}',
           data: counts,
           backgroundColor: 'rgba(54, 162, 235, 0.6)',
           borderColor: 'rgba(54, 162, 235, 1)',
@@ -98,11 +98,6 @@ fetch('/api/user-stats/')
       }
     });
   });
-
-
-
-
-
 </script>
 
 </body>

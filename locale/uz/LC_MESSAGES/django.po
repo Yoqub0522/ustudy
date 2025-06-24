@@ -1,0 +1,465 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 22:55+0500\n"
+"PO-Revision-Date: 2025-06-01 17:46+0500\n"
+"Last-Translator:   <axmedov.yoqub0522@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: .\new\models.py:28
+msgid "name"
+msgstr "nomi"
+
+#: .\new\models.py:29
+msgid "description"
+msgstr "tavsifi"
+
+#: .\new\models.py:30
+msgid "start_date"
+msgstr "boshlangan vaqti"
+
+#: .\new\models.py:39
+msgid "full_name"
+msgstr "To'liq ismi"
+
+#: .\new\models.py:40
+msgid "age"
+msgstr "Yoshi"
+
+#: .\new\models.py:42
+msgid "email"
+msgstr "email"
+
+#: .\new\models.py:43
+msgid "image"
+msgstr "rasm"
+
+#: .\new\models.py:44
+msgid "video"
+msgstr "video"
+
+#: .\new\models.py:45
+msgid "file"
+msgstr "fayl"
+
+#: .\new\models.py:46
+msgid "registration_date"
+msgstr "ro'yxatdan o'tish vaqti"
+
+#: .\new\models.py:47
+msgid "is_active"
+msgstr "Faoilligi"
+
+#: .\templates\base.html:7 .\templates\base.html:16 .\templates\base.html:147
+msgid "O'quv Markazi"
+msgstr ""
+
+#: .\templates\base.html:23
+msgid "Kurslar"
+msgstr ""
+
+#: .\templates\base.html:26
+msgid "Talabalar"
+msgstr ""
+
+#: .\templates\base.html:29
+msgid "Yordam"
+msgstr ""
+
+#: .\templates\base.html:35
+msgid "Til"
+msgstr ""
+
+#: .\templates\base.html:42
+msgid "O‘zbek"
+msgstr ""
+
+#: .\templates\base.html:49
+msgid "Ruscha"
+msgstr ""
+
+#: .\templates\base.html:56
+msgid "Inglizcha"
+msgstr ""
+
+#: .\templates\base.html:65
+msgid "Qidirish..."
+msgstr ""
+
+#: .\templates\base.html:76
+msgid "Avatar"
+msgstr ""
+
+#: .\templates\base.html:78
+msgid "Default avatar"
+msgstr ""
+
+#: .\templates\base.html:85
+msgid "Chiqish"
+msgstr ""
+
+#: .\templates\base.html:89 .\templates\login.html:12 .\templates\login.html:33
+msgid "Kirish"
+msgstr ""
+
+#: .\templates\base.html:120 .\templates\base.html:122
+msgid "Yangilangan"
+msgstr ""
+
+#: .\templates\base.html:128
+msgid "Sotib olish"
+msgstr ""
+
+#: .\templates\base.html:131
+msgid "Sotish"
+msgstr ""
+
+#: .\templates\base.html:134
+msgid "Kurs"
+msgstr ""
+
+#: .\templates\base.html:147
+msgid "Barcha huquqlar himoyalangan"
+msgstr ""
+
+#: .\templates\contact_admin.html:3 .\templates\contact_admin.html:7
+msgid "Admin bilan aloqa"
+msgstr ""
+
+#: .\templates\contact_admin.html:11
+msgid "Yuborish"
+msgstr ""
+
+#: .\templates\course_detail.html:4 .\templates\course_list.html:58
+#: .\templates\filter_students.html:4 .\templates\filter_students.html:20
+#: .\templates\student_list.html:4 .\templates\student_list.html:8
+msgid "Talabalar ro'yxati"
+msgstr ""
+
+#: .\templates\course_detail.html:10 .\templates\course_list.html:4
+#: .\templates\course_list.html:10 .\templates\course_list.html:15
+msgid "Kurslar ro'yxati"
+msgstr ""
+
+#: .\templates\course_detail.html:23 .\templates\course_list.html:30
+#: .\templates\student_list.html:23
+msgid "T/r"
+msgstr ""
+
+#: .\templates\course_detail.html:24 .\templates\course_list.html:31
+#: .\templates\student_list.html:24
+msgid "Nomi"
+msgstr ""
+
+#: .\templates\course_detail.html:25 .\templates\course_list.html:32
+msgid "Ma'lumot"
+msgstr ""
+
+#: .\templates\course_detail.html:26 .\templates\course_list.html:33
+msgid "Boshlangan vaqti"
+msgstr ""
+
+#: .\templates\course_detail.html:28 .\templates\student_detail.html:32
+#: .\templates\student_list.html:28
+msgid "Amallar"
+msgstr ""
+
+#: .\templates\course_detail.html:40
+msgid "Yangilash"
+msgstr ""
+
+#: .\templates\course_detail.html:43
+msgid "O‘chirish"
+msgstr ""
+
+#: .\templates\course_detail.html:56 .\templates\create_course.html:19
+#: .\templates\create_student.html:19 .\templates\filter_students.html:51
+#: .\templates\student_detail.html:86 .\templates\student_list.html:91
+msgid "Orqaga"
+msgstr ""
+
+#: .\templates\course_list.html:19
+msgid "Yangi kurs"
+msgstr ""
+
+#: .\templates\course_list.html:34
+msgid "Amal"
+msgstr ""
+
+#: .\templates\course_list.html:44 .\templates\student_list.html:40
+msgid "Taxrirlash"
+msgstr ""
+
+#: .\templates\course_list.html:51
+msgid "Hozircha hech qanday kurs mavjud emas."
+msgstr ""
+
+#: .\templates\course_list.html:59
+msgid "Excel"
+msgstr ""
+
+#: .\templates\create_course.html:7 .\templates\create_course.html:12
+msgid "Yangi kurs qo'shish"
+msgstr ""
+
+#: .\templates\create_course.html:18
+msgid "Kursni saqlash"
+msgstr ""
+
+#: .\templates\create_student.html:7 .\templates\create_student.html:12
+msgid "Yangi Talaba qo'shish"
+msgstr ""
+
+#: .\templates\create_student.html:18
+msgid "Talabani saqlash"
+msgstr ""
+
+#: .\templates\delete_course.html:6
+msgid "Kursni o'chirish"
+msgstr ""
+
+#: .\templates\delete_course.html:9
+#, python-format
+msgid ""
+"Siz <span style=\"text-decoration: underline; color: red\">%(course.name)s</"
+"span> ni o'chirmoqchimisiz?"
+msgstr ""
+
+#: .\templates\delete_course.html:12 .\templates\delete_student.html:12
+msgid "O'chirish"
+msgstr ""
+
+#: .\templates\delete_course.html:13 .\templates\delete_student.html:13
+msgid "Bekor qilish"
+msgstr ""
+
+#: .\templates\delete_student.html:6
+msgid "Talabani o'chirish"
+msgstr ""
+
+#: .\templates\delete_student.html:9
+#, python-format
+msgid ""
+"Siz <span style=\"text-decoration: underline; color: "
+"red\">%(student.full_name)s</span> ni o'chirmoqchimisiz?"
+msgstr ""
+
+#: .\templates\filter_students.html:9
+msgid "Kursni tanlang"
+msgstr ""
+
+#: .\templates\filter_students.html:16 .\templates\student_list.html:87
+msgid "Filterlash"
+msgstr ""
+
+#: .\templates\filter_students.html:27
+msgid "F.I.O"
+msgstr ""
+
+#: .\templates\filter_students.html:28
+msgid "Yosh"
+msgstr ""
+
+#: .\templates\filter_students.html:29 .\templates\student_detail.html:27
+#: .\templates\student_list.html:27
+#, fuzzy
+#| msgid "email"
+msgid "Email"
+msgstr "email"
+
+#: .\templates\filter_students.html:30
+msgid "Ro'yxatdan o'tgan sana"
+msgstr ""
+
+#: .\templates\filter_students.html:47
+msgid "Bu kursda hozircha talabalar yo'q"
+msgstr ""
+
+#: .\templates\login.html:18
+msgid "Login"
+msgstr ""
+
+#: .\templates\login.html:26
+msgid "Parol"
+msgstr ""
+
+#: .\templates\login.html:45
+msgid "Parolingizni unutdingizmi?"
+msgstr ""
+
+#: .\templates\login.html:46
+msgid "Parolni tiklash"
+msgstr ""
+
+#: .\templates\login.html:50
+msgid "Ro‘yxatdan o‘tmaganmisiz?"
+msgstr ""
+
+#: .\templates\login.html:51 .\templates\register.html:9
+#: .\templates\register.html:39
+msgid "Ro‘yxatdan o‘tish"
+msgstr ""
+
+#: .\templates\login.html:57
+msgid "Yoki quyidagidan foydalaning:"
+msgstr ""
+
+#: .\templates\login.html:60
+msgid "Google bilan kirish"
+msgstr ""
+
+#: .\templates\register.html:43
+msgid "Hisobingiz bormi?"
+msgstr ""
+
+#: .\templates\register.html:43
+msgid "Login sahifasiga o‘tish"
+msgstr ""
+
+#: .\templates\student_detail.html:4 .\templates\student_detail.html:8
+msgid "Talaba tafsilotlari"
+msgstr ""
+
+#: .\templates\student_detail.html:12 .\templates\student_list.html:12
+msgid "Yangi talaba"
+msgstr ""
+
+#: .\templates\student_detail.html:23
+msgid "Tr"
+msgstr ""
+
+#: .\templates\student_detail.html:24
+msgid "Ismi"
+msgstr ""
+
+#: .\templates\student_detail.html:25 .\templates\student_list.html:25
+msgid "Yoshi"
+msgstr ""
+
+#: .\templates\student_detail.html:26 .\templates\student_list.html:26
+msgid "Tanlagan kursi"
+msgstr ""
+
+#: .\templates\student_detail.html:28
+msgid "Rasm"
+msgstr ""
+
+#: .\templates\student_detail.html:29
+#, fuzzy
+#| msgid "video"
+msgid "Video"
+msgstr "video"
+
+#: .\templates\student_detail.html:30
+msgid "CV"
+msgstr ""
+
+#: .\templates\student_detail.html:45
+msgid "Talaba rasmi"
+msgstr ""
+
+#: .\templates\student_detail.html:47
+msgid "Rasm yo‘q"
+msgstr ""
+
+#: .\templates\student_detail.html:54
+msgid "Sizning brauzeringiz video tegini qo‘llab-quvvatlamaydi."
+msgstr ""
+
+#: .\templates\student_detail.html:57
+msgid "Video mavjud emas"
+msgstr ""
+
+#: .\templates\student_detail.html:62
+msgid "Yuklash"
+msgstr ""
+
+#: .\templates\student_detail.html:64
+msgid "Fayl yo‘q"
+msgstr ""
+
+#: .\templates\student_detail.html:80 .\templates\student_list.html:48
+msgid "Hozircha hech qanday talaba mavjud emas."
+msgstr ""
+
+#: .\templates\student_list.html:55
+msgid "Page navigation"
+msgstr ""
+
+#: .\templates\student_list.html:59 .\templates\student_list.html:62
+msgid "Oldingi"
+msgstr ""
+
+#: .\templates\student_list.html:77 .\templates\student_list.html:80
+msgid "Keyingi"
+msgstr ""
+
+#: .\templates\success.html:4
+msgid "Xabar yuborildi"
+msgstr ""
+
+#: .\templates\success.html:9
+msgid "Xabaringiz yuborildi!"
+msgstr ""
+
+#: .\templates\success.html:10
+msgid "Hurmatli foydalanuvchi, sizning xabaringiz muvaffaqiyatli yuborildi."
+msgstr ""
+
+#: .\templates\success.html:12
+#, python-format
+msgid "Sizning email manzilingiz: <strong>%(email)s</strong>"
+msgstr ""
+
+#: .\templates\success.html:15
+msgid "Bosh sahifaga qaytish"
+msgstr ""
+
+#: .\templates\user_stats.html:6 .\templates\user_stats.html:39
+msgid "Foydalanuvchilar Statistikasi"
+msgstr ""
+
+#: .\templates\user_stats.html:47
+msgid "So‘nggi 30 kunlik ro‘yxatdan o‘tishlar"
+msgstr ""
+
+#: .\templates\user_stats.html:62
+msgid "Umumiy foydalanuvchilar"
+msgstr ""
+
+#: .\templates\user_stats.html:87
+msgid "Yangi foydalanuvchilar"
+msgstr ""
+
+#: .\templates\user_to_admin.html:6
+msgid "Foydalanuvchi Xabari"
+msgstr ""
+
+#: .\templates\user_to_admin.html:9
+msgid "Yangi xabar"
+msgstr ""
+
+#: .\templates\user_to_admin.html:10
+msgid "Foydalanuvchi nomi:"
+msgstr ""
+
+#: .\templates\user_to_admin.html:11
+msgid "Email manzili:"
+msgstr ""
+
+#: .\templates\user_to_admin.html:13
+msgid "Xabar:"
+msgstr ""

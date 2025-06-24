@@ -2,7 +2,7 @@ from  django.urls import path
 from django.contrib.auth import views as auth_views
 
 from user.views import register, logout_view, user_stats_page, contact_admin, send_reset_code_view, reset_password_view, \
-    google_login, google_callback
+    google_login, google_callback, profile_detail, profile_edit
 
 from django.urls import path
 
@@ -27,6 +27,9 @@ urlpatterns = [
     path('reset-password/<uuid:token>/', reset_password_view, name='reset_password'),
     path('google/', google_login, name='google-login'),
     path('google/login/callback/',google_callback, name='googlepage'),
+    #profile
+    path('<str:username>/', profile_detail, name='profile_detail'),
+    path('profile/edit', profile_edit, name='profile_edit'),
 ]
 
 

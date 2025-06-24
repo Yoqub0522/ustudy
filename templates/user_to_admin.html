@@ -1,15 +1,16 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Foydalanuvchi Xabari</title>
+    <title>{% trans "Foydalanuvchi Xabari" %}</title>
 </head>
 <body style="font-family: Arial, sans-serif; padding: 20px;">
-    <h2>📩 Yangi xabar</h2>
-    <p><strong>Foydalanuvchi nomi:</strong> {{ username }}</p>
-    <p><strong>Email manzili:</strong> {{ email }}</p>
+    <h2>📩 {% trans "Yangi xabar" %}</h2>
+    <p><strong>{% trans "Foydalanuvchi nomi:" %}</strong> {{ username }}</p>
+    <p><strong>{% trans "Email manzili:" %}</strong> {{ email }}</p>
     <hr>
-    <p><strong>Xabar:</strong></p>
+    <p><strong>{% trans "Xabar:" %}</strong></p>
     <p>{{ message|linebreaks }}</p>
 </body>
 </html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-body">
+      <h2>{{ ad.title }}</h2>
+      <p><strong>Tavsif:</strong> {{ ad.description }}</p>
+      <p><strong>Narx:</strong> {{ ad.price|floatformat:0 }} so‘m</p>
+      <p><strong>Joylashuv:</strong> {{ ad.location }}</p>
+      <p><strong>Kategoriya:</strong> {{ ad.category.name }}</p>
+      <p><strong>Yaratilgan:</strong> {{ ad.created_at|date:"Y-m-d H:i" }}</p>
+
+      <hr>
+
+      <a href="{% url 'ad_edit' ad.pk %}" class="btn btn-warning">✏️ Tahrirlash</a>
+      <a href="{% url 'ad_delete' ad.pk %}" class="btn btn-danger">🗑️ O‘chirish</a>
+      <a href="{% url 'ad_list' %}" class="btn btn-secondary">⬅️ Orqaga</a>
+    </div>
+  </div>
+{% endblock %}

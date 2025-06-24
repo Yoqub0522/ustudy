@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>⭐ Mening saqlangan e’lonlarim</h2>
+
+  {% if favorites %}
+    <ul class="list-group">
+      {% for favorite in favorites %}
+        <li class="list-group-item">
+          <a href="{% url 'ad_detail' favorite.ad.pk %}">
+            {{ favorite.ad.title }} – {{ favorite.ad.price }} so‘m
+          </a>
+          <span class="text-muted float-end">{{ favorite.added_at|date:"Y-m-d" }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Sizda saqlangan e’lonlar yo‘q.</p>
+  {% endif %}
+{% endblock %}
