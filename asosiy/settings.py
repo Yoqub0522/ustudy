@@ -15,9 +15,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lz0sexi(viu(@gj4hpefb3$^i^h+(hg-ct@c0z^klu+%99lxlg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 import os
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '13.60.18.153', 'yoqubaxmedov.xyz', '.yoqubaxmedov.xyz']
 # # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['.onrender.com']
 # INSTALLED_APPS = [
@@ -50,13 +51,13 @@ INSTALLED_APPS = [
 
 
 # Fayllarni Cloudinary'ga saqlash uchun sozlamalar
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
-    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
-}
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+#
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+#     'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+#     'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -178,8 +179,8 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-# MEDIA_ROOT=BASE_DIR/'media'
-# MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
+MEDIA_URL='/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

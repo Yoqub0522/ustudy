@@ -34,4 +34,4 @@ class Profile(models.Model):
     user = models.OneToOneField(CustomUser,on_delete=models.CASCADE,related_name='profile')
     nickname=models.CharField(max_length=20,blank=True,null=True)
     bio=models.TextField(blank=True,null=True)
-    image=CloudinaryField('image', blank=True, null=True)
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
